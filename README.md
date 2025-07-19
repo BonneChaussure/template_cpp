@@ -2,7 +2,7 @@
 
 # 🧱 How to Use This C++ Template for New Projects
 
-- This repository serves as a base C++ project template. Follow the steps below to clone and reuse it for other projects, solo or in group work with vscode.
+This repository serves as a base C++ project template. Follow the steps below to clone and reuse it for other projects, solo or in group work with vscode.
 
 - Clone this template in your folder : 
 ```bash
@@ -10,6 +10,20 @@ git clone https://github.com/BonneChaussure/template_cpp.git
 ```
 
 - Once cloned rename the folder as you wish.
+
+This project uses ```clang``` and ```Cmake```, so you will need to install some extensions : 
+* clangd from LLVM
+* Clang-Format from Xavier Hellauer
+* Cmake Tools from Microsoft
+* Some C++ extension like C/C++ from Microsoft
+
+And some dependences are required, you can use this command : 
+```bash
+./scripts/install.sh
+```
+Or you can install them manualy. This command will install : 
+-  clang (as a complier), cmake and make
+
 
 # ⚙️ Build Instructions
 
