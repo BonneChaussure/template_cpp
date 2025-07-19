@@ -31,7 +31,17 @@ fi
 # -------- GENERATE --------
 cmake -DCMAKE_BUILD_TYPE="$BUILD_TYPE" ..
 
-# -------- BUILD --------
-cmake --build .
+# -------- BUILD (parallel) --------
+# Detect CPU core count
+if command -v nproc &> /dev/null; then
+    CORES=$(nproc)
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    CORES=$(sysctl -n hw.ncpu)
+else
+    CORES=4  # default fallback
+fi
+
+echo "🧵 Building using $CORES threads..."
+cmake --build . --parallel "$CORES"
 
 echo "✅ Build complete."
