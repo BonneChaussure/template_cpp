@@ -1,6 +1,5 @@
 Checks: >
   clang-analyzer-*
-  ,cppcoreguidelines-*
   ,modernize-*
   ,performance-*
   ,readability-*
@@ -8,6 +7,7 @@ Checks: >
   ,misc-*
   ,portability-*
   ,-modernize-use-trailing-return-type
+  ,-misc-use-anonymous-namespace
 
 WarningsAsErrors: '*'
 
@@ -16,6 +16,11 @@ FormatStyle: file
 UseColor: true
 
 CheckOptions:
+  - key:             readability-identifier-length.AllowedShortNames
+    value:           it,i,j,k
+  - key:             readability-identifier-length.MinimumLength
+    value:           2
+    
   - key:             modernize-use-nullptr.NullMacros
     value:           'NULL'
   - key:             modernize-loop-convert.MaxCopySize

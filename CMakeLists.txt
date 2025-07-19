@@ -15,6 +15,25 @@ message(STATUS "COMILER_NAME: ${COMPILER_NAME}")
 message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
 message(STATUS "CMAKE_RUNTIME_OUTPUT_DIRECTORY: ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
 
+#-------------------------
+#---    DEPENDENCIES   ---
+#-------------------------
+
+include(FetchContent)
+
+message(STATUS "Fetching catchorg/Catch2 from github...")
+FetchContent_Declare(
+  Catch2
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG v3.8.1
+)
+
+FetchContent_MakeAvailable(Catch2)
+
+#-------------------------
+#---      YOUR_APP     ---
+#-------------------------
+
 add_executable(${PROJECT_NAME} 
     src/testclass.cpp    
     src/main.cpp
@@ -55,3 +74,35 @@ target_compile_options(${PROJECT_NAME} PRIVATE
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
+#-------------------------
+#---     TestFiles     ---
+#-------------------------
+enable_testing()
+
+function(add_test_target target_name)
+    # Le reste des arguments sont les fichiers sources
+    set(options "")
+    set(oneValueArgs "")
+    set(multiValueArgs SOURCES)
+    cmake_parse_arguments(TEST "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+
+    add_executable(${target_name} ${TEST_SOURCES})
+
+    target_link_libraries(${target_name}
+        PRIVATE
+        Catch2::Catch2WithMain
+    )
+
+    target_include_directories(${target_name}
+        PRIVATE
+        ${CMAKE_SOURCE_DIR}/include
+    )
+
+    target_compile_options(${target_name} PRIVATE ${STRICT_WARNINGS})
+endfunction()
+
+add_test_target(catch2_test
+    SOURCES
+        testfiles/unit_tests/src/test_catch2.cpp
+)
