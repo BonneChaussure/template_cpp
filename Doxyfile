@@ -1,0 +1,27 @@
+# Doxyfile 1.14.0
+
+# Définir le nom du projet
+PROJECT_NAME = MyCppProject
+
+# Le répertoire de sortie
+OUTPUT_DIRECTORY = docs
+
+# Répertoires à scanner pour le code source
+INPUT = src include README.md
+
+# Autorise la recherche récursive dans les sous-dossiers
+RECURSIVE = YES
+
+# Pour générer de la doc HTML (ou LaTeX)
+GENERATE_HTML = YES
+GENERATE_LATEX = NO
+
+# Inclut les commentaires "///" et "//!"
+EXTRACT_ALL = YES   
+
+EXTRACT_PRIVATE = YES
+
+MARKDOWN_SUPPORT = YES
+USE_MDFILE_AS_MAINPAGE = README.md
+
+INPUT_ENCODING = UTF-8

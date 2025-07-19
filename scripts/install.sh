@@ -26,7 +26,7 @@ install_on_mac() {
     fi
 
     echo "📦 Installing dependencies..."
-    brew install cmake make
+    brew install cmake make doxygen
 
     export CXX=clang++
 }
@@ -37,10 +37,10 @@ install_on_linux() {
     if command -v apt >/dev/null 2>&1; then
         echo "📦 Installing dependencies with apt..."
         sudo apt update
-        sudo apt install -y clang cmake make
+        sudo apt install -y clang cmake make doxygen
     elif command -v pacman >/dev/null 2>&1; then
         echo "📦 Installing dependencies with pacman..."
-        sudo pacman -Sy --noconfirm clang cmake make
+        sudo pacman -Sy --noconfirm clang cmake make doxygen
     else
         echo "❌ Unsupported package manager. Install clang, cmake, and make manually."
         exit 1
@@ -55,9 +55,10 @@ install_on_windows() {
     if command -v clang++ >/dev/null 2>&1 && command -v cmake >/dev/null 2>&1; then
         echo "✅ Required tools already installed"
     else
-        echo "⚠️ Please install Clang and CMake manually on Windows:"
+        echo "⚠️ Please install Clang, CMake and Doxygen manually on Windows:"
         echo "- Clang via LLVM: https://releases.llvm.org/"
         echo "- CMake: https://cmake.org/download/"
+        echo "- Doxygen: https://www.doxygen.nl/"
         exit 1
     fi
 
@@ -79,6 +80,8 @@ case "$OS" in
         exit 1
         ;;
 esac
+
+echo ""
 
 echo "✅ Environment ready. You can now run:"
 

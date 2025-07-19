@@ -22,7 +22,7 @@ And some dependences are required, you can use this command :
 ./scripts/install.sh
 ```
 Or you can install them manualy. This command will install : 
--  clang (as a complier), cmake and make (and homebrew for macos if not already installed)
+-  clang (as a complier), doxygen (for autodocumentation), cmake and make (and homebrew for macos if not already installed)
 
 
 # ⚙️ Build Instructions
@@ -41,5 +41,4 @@ Or you can install them manualy. This command will install :
 - Once the compilation is done, you can find your complied file in ```/delivery/<COMPILE_MODE>/<YOUR_SYSTEM_PROCESSOR>/```
 
 - Finaly, to **rename** your compliled file, you need to got to the ```CMakeLists.txt``` file and change this line : 
-
 ```project(MyCppProject VERSION 1.0 LANGUAGES CXX)```
