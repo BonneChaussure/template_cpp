@@ -22,7 +22,7 @@ And some dependences are required, you can use this command :
 ./scripts/install.sh
 ```
 Or you can install them manualy. This command will install : 
--  clang (as a complier), cmake and make
+-  clang (as a complier), cmake and make (and homebrew for macos if not already installed)
 
 
 # ⚙️ Build Instructions
