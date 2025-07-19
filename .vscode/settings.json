@@ -1,0 +1,15 @@
+{
+  // Format automatiquement à la sauvegarde
+    "editor.formatOnSave": true,
+
+    "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+
+    "cmake.generator": "Unix Makefiles",
+    "cmake.sourceDirectory": "${workspaceFolder}",
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "C_Cpp.default.compilerPath": "/usr/bin/clang++",
+    "C_Cpp.default.intelliSenseMode": "clang-x64"
+  }
+  

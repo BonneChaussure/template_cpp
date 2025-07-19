@@ -1,0 +1,8 @@
+*.log
+.cache/
+build/
+delivery/
+docs/
+tmp/
+CMakeCache.txt
+.DS_Store

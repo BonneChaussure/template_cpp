@@ -1,0 +1,17 @@
+BasedOnStyle: LLVM
+Standard: c++20
+IndentWidth: 4
+ColumnLimit: 120
+UseTab: Never
+AllowShortFunctionsOnASingleLine: InlineOnly
+DerivePointerAlignment: false
+PointerAlignment: Left
+BreakBeforeBraces: Allman
+IncludeBlocks: Regroup
+SortIncludes: true
+SpacesInAngles: false
+SpaceBeforeParens: ControlStatements
+AlwaysBreakTemplateDeclarations: Yes
+Cpp11BracedListStyle: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ReflowComments: true
