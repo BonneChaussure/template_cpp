@@ -1,0 +1,23 @@
+# Force les fins de ligne en LF sur tous les fichiers texte
+* text=auto eol=lf
+
+# Définir les fichiers binaires (pas de diff)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.mp4 binary
+*.mp3 binary
+*.pdf binary
+*.zip binary
+*.ico binary
+
+# Les scripts sont toujours executable
+*.sh eol=lf text executable
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+*.xz binary
+*.7z binary
