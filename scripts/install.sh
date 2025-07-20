@@ -52,17 +52,22 @@ install_on_linux() {
 install_on_windows() {
     echo "🪟 Windows (Git Bash or WSL) detected"
 
-    if command -v clang++ >/dev/null 2>&1 && command -v cmake >/dev/null 2>&1; then
-        echo "✅ Required tools already installed"
-    else
-        echo "⚠️ Please install Clang, CMake and Doxygen manually on Windows:"
-        echo "- Clang via LLVM: https://releases.llvm.org/"
-        echo "- CMake: https://cmake.org/download/"
-        echo "- Doxygen: https://www.doxygen.nl/"
+    # Vérifie si choco est installé
+    if ! command -v choco >/dev/null 2>&1; then
+        echo "❌ Chocolatey is not installed on your machine, please download it manually."
         exit 1
+    else
+        echo "✅ Chocolatey already installed"
     fi
 
+    echo "📦 Installing dependencies via Chocolatey..."
+
+    choco install -y llvm cmake doxygen
+
+    echo "✅ Dependencies installed"
+
     export CXX=clang++
+    echo "🔧 CXX set to clang++"
 }
 
 case "$OS" in
