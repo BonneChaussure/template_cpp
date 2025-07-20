@@ -1,10 +1,10 @@
 #include "testclass.hpp"
 
-#include <iostream>
+#include <spdlog/spdlog.h>
 
 using namespace test;
 
 void TestClass::printHello()
 {
-    std::cout << "Hello" << '\n';
+    spdlog::info("Hello");
 }

@@ -30,6 +30,15 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Catch2)
 
+message(STATUS "Fetching gabime/spdlog from github...")
+FetchContent_Declare(
+  spdlog
+  GIT_REPOSITORY https://github.com/gabime/spdlog.git
+  GIT_TAG v1.15.3
+)
+
+FetchContent_MakeAvailable(spdlog)
+
 #-------------------------
 #---      YOUR_APP     ---
 #-------------------------
@@ -74,6 +83,8 @@ target_compile_options(${PROJECT_NAME} PRIVATE
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE spdlog::spdlog)
 
 #-------------------------
 #---     TestFiles     ---
